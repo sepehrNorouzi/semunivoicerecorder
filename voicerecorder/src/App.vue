@@ -13,5 +13,9 @@ export default {
 	components: {
 		appNavigation: NavigationVue,
 	},
+
+	beforeCreate() {
+		this.$store.dispatch("initialzieStore");
+	},
 };
 </script>
