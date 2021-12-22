@@ -1,18 +1,31 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="Home">
+      <template v-if="!userId">
+        <app-signup-form />
+      </template>
+      <template v-else>
+          <app-voice-recorder />
+      </template>
+    </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mapState } from "vuex";
+import SignInFormVue from '../components/SignInForm.vue';
+import VoiceRecorderVue from '../components/VoiceRecorder.vue';
 
 export default {
-  name: 'Home',
+	name: "Home",
+
+	computed: {
+		...mapState(["userId", "userLevel"]),
+	},
+
   components: {
-    HelloWorld
+    appSignupForm: SignInFormVue,
+    appVoiceRecorder: VoiceRecorderVue,
   }
-}
+};
 </script>
+
