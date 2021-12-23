@@ -9,6 +9,7 @@ export default new Vuex.Store({
 		userLevel: 0,
 		username: null,
 		universityId: null,
+		recordings: [],
 	},
 	mutations: {
 		initialzieStore(state) {
@@ -38,6 +39,10 @@ export default new Vuex.Store({
 			state.universityId = id;
 		},
 
+		setRecordings(state, recordings) {
+			state.recordings = recordings;
+		},
+
 		logout(state) {
 			state.userId = null;
 			state.userLevel = 0;
@@ -64,6 +69,10 @@ export default new Vuex.Store({
 
 		setUniversityId({ commit }, id) {
 			commit("setUniversityId", id);
+		},
+
+		setRecordings({ commit }, recordings) {
+			commit("setRecordings", recordings);
 		},
 
 		initialzieStore({ commit }) {
